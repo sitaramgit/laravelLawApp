@@ -39,4 +39,8 @@ class AdminController extends Controller
         			);
          return $output;
     }
+    public function listDetails($value='')
+    {
+      return "guru";
+    }
 }
