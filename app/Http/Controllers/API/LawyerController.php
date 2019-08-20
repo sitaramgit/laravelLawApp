@@ -112,4 +112,15 @@ class LawyerController extends Controller
                            ->get();
         return $profile;
     }
+
+
+    public function myClients($id)
+    {
+        
+    $results = DB::select('SELECT DISTINCT chat_room.sender as senders, client_profile.*, users.email FROM chat_room
+        INNER JOIN users on users.id = chat_room.sender 
+        INNER JOIN client_profile on client_profile.user_id = users.id
+        WHERE chat_room.receiver = ?', [$id]);
+        return $results;
+    }
 }

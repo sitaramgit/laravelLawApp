@@ -25,6 +25,7 @@ Route::get('getAllUsers', 'API\UsersController@getAllUsers');
 Route::post('saveLawyerProfile', 'API\LawyerController@store');
 Route::get('getLawyerProfile/{id}', 'API\LawyerController@getLawyerProfile');
 Route::post('updateLawyerProfile/{id}', 'API\LawyerController@update');
+Route::get('myClients/{id}', 'API\LawyerController@myClients');
 
 
 //client
@@ -39,5 +40,13 @@ Route::get('getAllClients', 'API\ClientController@getAllClients');
 Route::post('updateStatus', 'API\ClientController@updateStatus');
 Route::get('getAllLawyerProfiles', 'API\LawyerController@getAllLawyerProfiles');
 Route::get('getDashboardDetails', 'API\AdminController@dashboardDetails');
+
+
+//chat
+// Route::post('updateStatus', 'API\ClientController@updateStatus');
+Route::apiResource('chat', 'API\ChatController');
+// Route::post('chatSave', 'API\ChatController@store'); 
+Route::post('getChat', 'API\ChatDataController@showChat');
+Route::post('updateStatus', 'API\ChatDataController@updateStatus');
 
 });
