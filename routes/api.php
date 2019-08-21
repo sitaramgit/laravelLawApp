@@ -37,7 +37,7 @@ Route::get('getClientDashboard/{id}', 'API\ClientController@getClientDashboard')
 
 
 Route::get('getAllClients', 'API\ClientController@getAllClients');
-Route::post('updateStatus', 'API\ClientController@updateStatus');
+Route::post('updateUserStatus', 'API\ClientController@updateStatus');
 Route::get('getAllLawyerProfiles', 'API\LawyerController@getAllLawyerProfiles');
 Route::get('getDashboardDetails', 'API\AdminController@dashboardDetails');
 

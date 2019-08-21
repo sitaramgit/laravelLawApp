@@ -19,6 +19,9 @@ public $successStatus = 200;
         // return $request;
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){ 
             $user = Auth::user(); 
+            if($user->status == 0){
+                return response()->json(['error'=>'your Account Blocked by admin'], 401); 
+            }
             $success['token'] =  $user->createToken('MyApp')->accessToken; 
             $success['type'] =  $user->user_type; 
             $success['name'] =  $user->name; 
